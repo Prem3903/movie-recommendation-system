@@ -3,30 +3,29 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Sample dataset (you can replace this with full dataset)
-data = {
-    'movie_id': [1, 2, 3, 4, 5],
-    'title': ['The Matrix', 'John Wick', 'The Dark Knight', 'Batman Begins', 'Inception'],
-    'tags': [
-        'sci-fi action hacker',
-        'assassin action revenge',
-        'dc superhero joker batman',
-        'batman origin dc action',
-        'dream sci-fi action thriller'
-    ]
-}
+# Load the movie dictionary
+movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
+movies = pd.DataFrame(movies_dict)
 
-df = pd.DataFrame(data)
+# Optional: fill missing values
+movies.fillna('', inplace=True)
 
-# Vectorization
+# Combine relevant features (adjust depending on your dataset)
+# If you already have a 'tags' column, use that.
+if 'tags' not in movies.columns:
+    if 'overview' in movies.columns and 'genres' in movies.columns:
+        movies['tags'] = movies['overview'] + ' ' + movies['genres']
+    else:
+        raise Exception("Your dataset must include 'tags' or both 'overview' and 'genres' columns.")
+
+# Convert text to feature vectors
 cv = CountVectorizer(max_features=5000, stop_words='english')
-vectors = cv.fit_transform(df['tags']).toarray()
+vectors = cv.fit_transform(movies['tags']).toarray()
 
-# Similarity calculation
+# Compute cosine similarity
 similarity = cosine_similarity(vectors)
 
-# Save files
-pickle.dump(df, open('movies.pkl', 'wb'))
+# Save the similarity matrix
 pickle.dump(similarity, open('similarity.pkl', 'wb'))
 
-print("✅ Pickle files generated successfully!")
+print("✅ similarity.pkl has been regenerated successfully.")
