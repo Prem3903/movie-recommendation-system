@@ -1,38 +1,16 @@
 # 🎬 Movie Recommendation System
 
-A content-based movie recommendation system built using **Python**, **Pandas**, **Scikit-learn**, and **Streamlit**. Users can select a movie from a dropdown and instantly get visually rich recommendations based on similarity scores.
+An intelligent movie recommender system built with **Python**, **Machine Learning**, and **Streamlit**, that suggests similar movies based on user selection.
 
----
+![App UI Screenshot](images/image1.png)
 
 ## 🚀 Features
 
-- Clean and modern UI with Streamlit
-- Dropdown to select any movie title
-- "Recommend" button to generate 5 similar movie suggestions
-- Each suggestion includes:
-  - Movie poster
-  - Movie title
-- Light and dark mode compatible
-
-📸 **Some Visuals Of Movie Recommender System**
-
-📸 **Example 1 - Home Page:**
-<img width="1461" height="707" alt="image" src="https://github.com/user-attachments/assets/795ea4cd-6d7a-4e7c-bfe1-21e50ce2f982" />
-
-
-
-📸 **Example 2 - Dropdown Selection:**
-
-<img width="1325" height="783" alt="image" src="https://github.com/user-attachments/assets/e88ff5e1-042e-45ec-84e4-239591901d7a" />
-
-
-📸 **Example 3 - Result With Movie Posters:**
-
-<img width="1357" height="810" alt="image" src="https://github.com/user-attachments/assets/78f6b01c-559b-4a81-b477-7f6558319f99" />
-
-
-
----
+- 🎥 Select your favorite movie from the dropdown
+- 🤖 Recommends 5 similar movies using a similarity matrix
+- 🖼️ Displays movie posters for each recommendation
+- 🧠 Built using cosine similarity on movie vectors
+- 🌐 Styled and deployed using Streamlit
 
 ## 🧠 How it Works
 
@@ -41,16 +19,34 @@ A content-based movie recommendation system built using **Python**, **Pandas**, 
 - Computes **cosine similarity** between movies
 - Shows top 5 most similar titles
 
----
+  
+## 📸 UI Screenshots
+
+| Dropdown UI                              | Recommendations Output                      |
+|------------------------------------------|---------------------------------------------|
+| ![Dropdown](images/image2.png)  | ![Output](images/image3.png)|
+
+
+## 📁 Project Structure
+
+```bash
+movie-recommender-system/
+│
+├── app.py                  # Main Streamlit app
+├── data/                   # Movie datasets
+├── similarity.pkl          # Precomputed similarity matrix
+├── README.md               # Project documentation
+├── requirements.txt        # Python dependencies
+└── images/                 # Screenshots for documentation
 
 
 ## 🛠️ Technologies Used
-- Python 🐍
-- Pandas
-- Numpy
-- Scikit-learn
+
+- Python
+- Pandas, NumPy, Scikit-learn
 - Streamlit
-- TMDB API (for fetching posters)
+- TMDB API for posters
+- Pickle (for model persistence)
 
 
 
