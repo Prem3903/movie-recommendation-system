@@ -15,7 +15,9 @@ A content-based movie recommendation system built using **Python**, **Pandas**, 
 - Light and dark mode compatible
 
 📸 **Example - Dropdown Selection:**
-![Dropdown Selection](<img width="1461" height="707" alt="image" src="https://github.com/user-attachments/assets/d6fd01f3-37b1-4504-8745-56830fba96d9" />
+![Dropdown Selection]
+                      
+                      <img width="1461" height="707" alt="image" src="https://github.com/user-attachments/assets/d6fd01f3-37b1-4504-8745-56830fba96d9" />
 )
 
 ---
